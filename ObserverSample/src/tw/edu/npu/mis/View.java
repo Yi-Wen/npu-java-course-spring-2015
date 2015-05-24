@@ -32,6 +32,10 @@ package tw.edu.npu.mis;
  */
 public class View {
 
+    static boolean isValid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private final String mName;
     private final Window mWindow;
     private final Model mModel;

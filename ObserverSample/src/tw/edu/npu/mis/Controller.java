@@ -44,7 +44,7 @@ public class Controller {
      * Read input and update model accordingly.
      */
     public void readInput() {
-        System.out.print("View 4: ");
+        System.out.print("Controller: ");
         Scanner s = new Scanner(System.in);
         String input = s.nextLine().trim();
         if (!input.isEmpty()) {

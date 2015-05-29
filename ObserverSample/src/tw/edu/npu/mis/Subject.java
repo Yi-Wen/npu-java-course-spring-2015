@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Samael Wang <freesamael@gmail.com>
+ * Copyright (c) 2015, STP
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,33 +25,38 @@
  */
 package tw.edu.npu.mis;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 /**
- * The domain model.
- *
+ * Create Subject class.
+ * Use ArrayList to store the Observer list.
  * @author Even
  */
-public class Model extends Subject{
-
-    private String mData;
-
-    /**
-     * Get model content.
-     *
-     * @return {@link String}
-     */
-    public String getData() {
-        return mData;
+public class Subject {
+private List<Observer> mObservers = new ArrayList<>();
+   /**
+    * Register to Oberserver data.
+    * @param o The Oberserver.
+    */ 
+    public void Attach(Observer o) {
+        mObservers.add(o);
     }
-
     /**
-     * Update model.
-     *
-     * @param data A {@link String} data.
+     * Remove to Oberserver data.
+     * @param o The Oberserver.
      */
-    public void setData(String data) {
-        mData = data;
+    public void Detach(Observer o) {
+        mObservers.remove(o);
     }
-
+/**
+ * Send notifications to monitor the  Observer.
+ */
+    public void Notify() {
+        for (Observer i : mObservers){
+            i.update();
+        }
+    }
     
-
 }

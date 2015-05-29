@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Samael Wang <freesamael@gmail.com>
+ * Copyright (c) 2015, STP
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,33 +25,48 @@
  */
 package tw.edu.npu.mis;
 
+
 /**
- * The domain model.
- *
+ *{link AlternativeView} generates outputs to the user.
+ * Implements Observer Interface.
  * @author Even
  */
-public class Model extends Subject{
-
-    private String mData;
-
+public class AlternativeView implements Observer {
+    //Use private define constants.
+    private final String mName;
+    private final Window mWindow;
+    private final Model mModel;
+    private boolean mIsValid;
     /**
-     * Get model content.
-     *
-     * @return {@link String}
+     * 
+     * @param name:Set the initial name.
+     * @param window:Set the initial window.
+     * @param model :Set the initial model.
      */
-    public String getData() {
-        return mData;
+  
+    public AlternativeView(String name, Window window, Model model) {
+        this.mName = name;
+        this.mWindow = window;
+        this.mModel = model;
     }
-
     /**
-     * Update model.
-     *
-     * @param data A {@link String} data.
+     * Content has not been updated.
+     * @return 
      */
-    public void setData(String data) {
-        mData = data;
+    public boolean isValid() {
+        return mIsValid;
     }
-
-    
-
+    /**
+     * Show the reversed content of the model on the console.
+     * 
+     */
+    public void show() {
+        System.out.print("AlternativeView: ");
+        System.out.println(new StringBuilder(mModel.getData()).reverse());
+        mIsValid = true;
+    }
+        @Override
+    public void update() {
+        show();
+    }
 }

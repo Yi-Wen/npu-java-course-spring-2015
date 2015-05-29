@@ -28,18 +28,27 @@ package tw.edu.npu.mis;
 /**
  * {@link View} generates outputs to the user.
  *
- * @author Samael Wang <freesamael@gmail.com>
+ * @author Even
  */
 public class View {
+    
 
+    private boolean isValid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     //Use private define constants.
     private final String mName;
     private final Window mWindow;
     private final Model mModel;
-
+  /**
+   * @param name:Set the initial name.
+   * @param window:Set the initial window.
+   * @param model :Set the initial model.
+   */
     public View(String name, Window window, Model model) {
-        mName = name;
-        mWindow = window;
-        mModel = model;
+        this.mName = name;
+        this.mWindow = window;
+        this.mModel = model;
     }
 
     /**

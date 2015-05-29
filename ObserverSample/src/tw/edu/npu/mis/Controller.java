@@ -30,7 +30,7 @@ import java.util.Scanner;
 /**
  * {@link Controller} retrieves inputs from the user.
  *
- * @author Samael Wang <freesamael@gmail.com>
+ * @author Even
  */
 public class Controller {
 

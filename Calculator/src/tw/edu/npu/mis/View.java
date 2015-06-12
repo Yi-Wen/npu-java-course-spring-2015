@@ -34,6 +34,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
         display = new javax.swing.JTextField();
         bt_backspece = new javax.swing.JButton();
         bt_ce = new javax.swing.JButton();
@@ -55,6 +56,17 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
         bt_three = new javax.swing.JButton();
         bt_six = new javax.swing.JButton();
         decimal = new javax.swing.JButton();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -402,7 +414,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
 
     private void decimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decimalActionPerformed
         //action for dot button
-         mCon.setData(decimal.getText());
+         mCon.setDot( decimal.getText());
     }//GEN-LAST:event_decimalActionPerformed
 
     private void bt_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_clearActionPerformed
@@ -416,32 +428,39 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     }//GEN-LAST:event_bt_equalActionPerformed
 
     private void bt_plusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_plusActionPerformed
-         mCon.notation(bt_plus.getText());
+        // action for +
+        mCon.notation(bt_plus.getText());
     }//GEN-LAST:event_bt_plusActionPerformed
 
     private void bt_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_minusActionPerformed
+       // action for -
         mCon.notation(bt_minus.getText());
     }//GEN-LAST:event_bt_minusActionPerformed
 
     private void bt_timesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_timesActionPerformed
-         mCon.notation(bt_times.getText());
+        // action for x
+        mCon.notation(bt_times.getText());
     }//GEN-LAST:event_bt_timesActionPerformed
 
     private void bt_overActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_overActionPerformed
-          mCon.notation(bt_over.getText());
+          // action for ÷
+        mCon.notation(bt_over.getText());
     }//GEN-LAST:event_bt_overActionPerformed
 
     private void bt_plus_minusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_plus_minusActionPerformed
-        mCon.setData(bt_plus_minus.getText());
+          // action for +/-號
+        mCon.notation(bt_plus_minus.getText());
         
     }//GEN-LAST:event_bt_plus_minusActionPerformed
 
     private void bt_ceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_ceActionPerformed
-        mCon.setData(bt_ce.getText());
+         // action for CE
+        mCon.notation(bt_ce.getText());
     }//GEN-LAST:event_bt_ceActionPerformed
 
     private void bt_backspeceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_backspeceActionPerformed
-          mCon.setData(bt_backspece.getText());
+        // action for 倒退鍵
+        mCon.notation(bt_backspece.getText());
     }//GEN-LAST:event_bt_backspeceActionPerformed
 
    
@@ -494,6 +513,7 @@ public class View extends javax.swing.JFrame implements java.util.Observer{
     private javax.swing.JButton bt_zero;
     private javax.swing.JButton decimal;
     private javax.swing.JTextField display;
+    private javax.swing.JDialog jDialog1;
     // End of variables declaration//GEN-END:variables
  
    /**

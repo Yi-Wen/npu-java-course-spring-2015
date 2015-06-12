@@ -34,11 +34,11 @@ public class Controller {
   
    /**
     * 
-    * @param data :傳數字
+    * @param digital :傳數字
     */
-    public void setData(String data)
+    public void setData(String digital)
     {
-        mModel.appendDigit(Integer.parseInt(data));
+        mModel.appendDigit(Integer.parseInt(digital));
         
     }
    /**

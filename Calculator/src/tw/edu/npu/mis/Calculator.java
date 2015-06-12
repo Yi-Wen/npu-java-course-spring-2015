@@ -10,13 +10,9 @@ import static org.omg.CORBA.ORB.init;
  * The model class of the calculator application.
  */
 public class Calculator extends java.util.Observable{
-    double x,y;
-    String num = "";
-    String Dot = "";
-    String determine = "";
-
+    double x,y,z;
+    String num = "",Dot="",judge="";
    
-
     /**
      * The available operators of the calculator.
      */
@@ -53,7 +49,7 @@ public class Calculator extends java.util.Observable{
     * @param dot :按下小數點
     */
     public void appendDot(String dot) {         
-        Dot += dot;
+        num += dot;
         getDisplay();
        
     }
@@ -64,18 +60,22 @@ public class Calculator extends java.util.Observable{
     public void performOperation(Operator operator) {    
        
         switch(operator){
+            /**
+             * C按鈕功能
+             */
             case CLEAR:
                 num = "0";
+                z = 0;
                 getDisplay();
                 num = "";
               break;
             case EQUAL:
-               switch(determine){
+               switch(judge){
                     case "+":
-                        y = Integer.parseInt(num);
-                        num = String.valueOf(x + y);
-                        getDisplay();
-                        num ="";
+                            y = Integer.parseInt(num);
+                            num = String.valueOf(x + y);
+                            getDisplay();
+                            num ="";
                         break;
                     case "-":
                        y = Integer.parseInt(num);
@@ -99,28 +99,28 @@ public class Calculator extends java.util.Observable{
               
                 break;
             case PLUS:
-                x = Integer.parseInt(num);
-                num = "";
-                getDisplay();
-                determine = "+";
+                    x = Integer.parseInt(num);
+                    num = "";
+                    getDisplay();
+                    judge = "+";
                 break;
             case MINUS:
                 x= Integer.parseInt(num);
                 num = "";
                 getDisplay();
-                determine = "-";
+                judge = "-";
                 break;
             case TIMES:
                 x = Integer.parseInt(num);
                 num = "";
                 getDisplay();
-                determine = "x";
+                judge = "x";
                 break;
             case OVER:
                 x = Integer.parseInt(num);
                 num = "";
                 getDisplay();
-                determine = "÷";
+                judge = "÷";
                 break;
             case PLUS_MINUS:
                 break;
@@ -141,8 +141,11 @@ public class Calculator extends java.util.Observable{
             case MEM_RECALL:
                 break;
             case CLEAR_ENTRY:
+                  num = "0";
+                  getDisplay();
+                  num ="";
                 break;
-            case BACKSPACE:
+            case BACKSPACE:       
                 break;
             
                 
@@ -160,7 +163,7 @@ public class Calculator extends java.util.Observable{
         return null;
     }
     /**
-     *依照Controller傳送運算符號去執行各種運算功能
+     *
      * @param text 用來存取運算符號 
      */
     public void notation(String text)
@@ -171,6 +174,9 @@ public class Calculator extends java.util.Observable{
         if(text == "-") performOperation(Operator.MINUS);
         if(text == "x") performOperation(Operator.TIMES);
         if(text == "÷") performOperation(Operator.OVER);
+        if(text == "CE") performOperation(Operator.CLEAR_ENTRY);
+        if(text == "←") performOperation(Operator.BACKSPACE);
+        if(text == "±") performOperation(Operator.PLUS_MINUS);
     }
 
    
